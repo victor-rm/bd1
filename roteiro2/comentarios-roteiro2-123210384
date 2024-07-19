@@ -1,0 +1,41 @@
+Questão 1:
+
+Primeiro erro observado:
+ERROR:  value too long for type character(11)
+
+Esse erro aconteceu porque a tabela criada limita a quantidade de caracteres no campo CPF que eu criei.
+
+Segundo erro observado:
+ERROR:  value too long for type character(1)
+
+Esse erro aconteceu porque a tabela limita a quantidade de caracteres para 1 no campo criado.
+
+Questão 2:
+
+ERROR:  integer out of range
+
+Esse erro ocorre porque o inteiro adicionado passa do limite especificado pelo tipo integer. Para corrigir é necessário alterar o tipo do atributo para bigint.
+Usei esse comando para alterar: 
+
+ALTER TABLE tarefas ALTER COLUMN id_funcionario SET DATA TYPE BIGINT;
+
+Questão 3:
+
+Após alterar o tipo da coluna numero para smallint os valores inseridos foram recusados.
+Usei esse comando: 
+ALTER TABLE tarefas ALTER COLUMN numero SET DATA TYPE SMALLINT;
+
+Erro declarado:
+
+ERROR:  smallint out of range
+
+Questão 4:
+
+Após alterar o nome das tabelas, eu tentei alterar uma tabela para não aceitar valores null. Recebi este erro:
+
+ERROR:  column "id" of relation "tarefas" contains null values
+
+Após usar o comando abaixo para deletar os valores nulos eu consegui alterar as colunas para não receberem valores nulos. 
+DELETE FROM tarefas WHERE id IS null;
+
+
